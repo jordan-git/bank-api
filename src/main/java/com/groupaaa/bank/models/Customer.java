@@ -8,14 +8,14 @@ public class Customer {
     private int id;
     private final List<Account> accounts;
     
-    private static int nextAccountId = 1;
+    private static int nextCustomerId = 1;
 
     public Customer(String name, String address, String email, String pin) {
         this.name = name;
         this.address = address;
         this.email = email;
         this.pin = pin; // Using 4 digit pin as credentials for simplicity sake
-        this.id = nextAccountId++;
+        this.id = nextCustomerId++;
 
         accounts = new ArrayList<>();
     }
