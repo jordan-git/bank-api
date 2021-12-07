@@ -23,6 +23,16 @@ public class CustomerService {
     public List<Customer> getCustomers() {
         return customers;
     }
+    
+    public Customer getCustomer(int id) {
+        for (Customer customer : customers) {
+            if (customer.getId() == id) {
+                return customer;
+            }
+        }
+        
+        return null;
+    }
 
     public void addCustomer(Customer customer) {
         customers.add(customer);

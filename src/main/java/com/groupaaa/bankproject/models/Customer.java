@@ -5,13 +5,17 @@ import java.util.ArrayList;
 
 public class Customer {
     private String name, address, email, pin;
+    private int id;
     private final List<Account> accounts;
+    
+    private static int nextAccountId = 1;
 
     public Customer(String name, String address, String email, String pin) {
         this.name = name;
         this.address = address;
         this.email = email;
         this.pin = pin; // Using 4 digit pin as credentials for simplicity sake
+        this.id = nextAccountId++;
 
         accounts = new ArrayList<>();
     }
@@ -54,5 +58,13 @@ public class Customer {
 
     public void setPin(String pin) {
         this.pin = pin;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
