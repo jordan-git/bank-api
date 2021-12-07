@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.groupaaa.bank.services;
 
-/**
- *
- * @author rossb
- */
+
 public class TransactionService {
+    private static final TransactionService instance = new TransactionService();
     
+    private TransactionService() {
+    }
+    
+    // singleton pattern
+    public static TransactionService getService() {
+        return instance;
+    }
 }
