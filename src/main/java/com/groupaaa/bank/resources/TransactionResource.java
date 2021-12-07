@@ -5,10 +5,23 @@
  */
 package com.groupaaa.bank.resources;
 
-/**
- *
- * @author rossb
- */
+import com.groupaaa.bank.models.Transaction;
+import com.groupaaa.bank.services.TransactionService;
+import java.util.List;
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+
 public class TransactionResource {
+    
+    TransactionService transactionService = new TransactionService();
+    
+    @GET    
+    @Produces(MediaType.APPLICATION_JSON)    
+    public List<Transaction> getAllTransactions() {        
+       return transactionService.getAllTransactions();
+    }
+    
     
 }
