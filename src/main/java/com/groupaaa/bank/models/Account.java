@@ -1,4 +1,4 @@
-package com.groupaaa.bankproject.models;
+package com.groupaaa.bank.models;
 
 import java.util.ArrayList;
 import java.util.List;

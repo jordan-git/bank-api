@@ -1,6 +1,6 @@
-package com.groupaaa.bankproject.services;
+package com.groupaaa.bank.services;
 
-import com.groupaaa.bankproject.models.Customer;
+import com.groupaaa.bank.models.Customer;
 import java.util.ArrayList;
 import java.util.List;
 

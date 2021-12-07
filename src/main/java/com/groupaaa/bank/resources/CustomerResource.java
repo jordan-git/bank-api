@@ -1,8 +1,8 @@
-package com.groupaaa.bankproject.resources;
+package com.groupaaa.bank.resources;
 
 import com.google.gson.Gson;
-import com.groupaaa.bankproject.models.Customer;
-import com.groupaaa.bankproject.services.CustomerService;
+import com.groupaaa.bank.models.Customer;
+import com.groupaaa.bank.services.CustomerService;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
