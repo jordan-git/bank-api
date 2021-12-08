@@ -1,13 +1,13 @@
 package com.groupaaa.bank.services;
 
+import com.groupaaa.bank.models.Transaction;
 import java.util.List;
-import javax.transaction.Transaction;
 
 
 public class TransactionService {
     private static final TransactionService instance = new TransactionService();
     
-    public TransactionService() {
+    private TransactionService() {
     }
     
     // singleton pattern

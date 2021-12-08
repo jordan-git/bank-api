@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 
 public class TransactionResource {
     
-    TransactionService transactionService = new TransactionService();
+    TransactionService transactionService = TransactionService.getService();
     
     @GET    
     @Produces(MediaType.APPLICATION_JSON)    
