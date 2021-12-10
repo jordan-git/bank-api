@@ -18,4 +18,11 @@ public class TransactionService {
     public List<Transaction> getAllTransactions() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public Transaction getTransaction(int transactionId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+    
 }

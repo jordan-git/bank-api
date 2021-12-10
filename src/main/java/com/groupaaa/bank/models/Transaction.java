@@ -10,62 +10,18 @@ public class Transaction {
     private double newBalance;
     private int transactionID;
     private long amount;
-    private String transactionAnotherAccount;
-    private String transactionBetweenMyAccounts;
-    private String transactionToName;
-    private String transactionFromName;
+    
+   
     
     
-    public Transaction(String type, String description, double newBalance, double balance) {
+    
+    public Transaction(String type, String description, double newBalance) {
         this.transactionID = transactionID;
         this.type = type;
         this.description = description;
-        this.balance = balance;
         this.newBalance = newBalance;
         this.amount = amount;
         date = LocalDate.now();
-    }
-
-    public long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(long amount) {
-        this.amount = amount;
-    }
-
-   
-
-    public String getTransactionToName() {
-        return transactionToName;
-    }
-
-    public void setTransactionToName(String transactionToName) {
-        this.transactionToName = transactionToName;
-    }
-
-    public String getTransactionFromName() {
-        return transactionFromName;
-    }
-
-    public void setTransactionFromName(String transactionFromName) {
-        this.transactionFromName = transactionFromName;
-    }
-
-    public String getTransactionAnotherAccount() {
-        return transactionAnotherAccount;
-    }
-
-    public void setTransactionAnotherAccount(String transactionAnotherAccount) {
-        this.transactionAnotherAccount = transactionAnotherAccount;
-    }
-
-    public String getTransactionBetweenMyAccounts() {
-        return transactionBetweenMyAccounts;
-    }
-
-    public void setTransactionBetweenMyAccounts(String transactionBetweenMyAccounts) {
-        this.transactionBetweenMyAccounts = transactionBetweenMyAccounts;
     }
 
     public double getBalance() {
@@ -74,6 +30,15 @@ public class Transaction {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    
+    public long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(long amount) {
+        this.amount = amount;
     }
 
     public int getTransactionID() {

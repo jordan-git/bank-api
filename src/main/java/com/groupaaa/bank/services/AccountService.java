@@ -18,4 +18,8 @@ public class AccountService {
     public List<Account> getAccountsByCustomerId(int id) {
         return customerService.getCustomer(id).getAccounts();
     }
+
+    public Object getAccountBalance(int customerId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
