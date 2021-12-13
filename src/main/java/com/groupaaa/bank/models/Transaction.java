@@ -13,7 +13,9 @@ public class Transaction {
     
    
     
-    
+    public Transaction(){
+        
+    }
     
     public Transaction(String type, String description, double newBalance) {
         this.transactionID = transactionID;

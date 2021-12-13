@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.groupaaa.bank.models.Transaction;
 import com.groupaaa.bank.services.TransactionService;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -16,11 +17,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
+@Path("transactions")
+@RequestScoped
 public class TransactionResource {
     
     TransactionService transactionService = TransactionService.getService();
-    
+    //get request to return all transactions
     @GET    
     @Produces(MediaType.APPLICATION_JSON)    
     public List<Transaction> getAllTransactions() {        
@@ -33,6 +35,8 @@ public class TransactionResource {
 //       return transactionService.getTransactionsByID(transactionID);
 //    }
     
+    
+    //get request by id
     @GET
     @Path("/{transactionID}")
     @Produces(MediaType.APPLICATION_JSON)

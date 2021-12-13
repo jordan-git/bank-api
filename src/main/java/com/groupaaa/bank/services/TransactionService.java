@@ -1,11 +1,13 @@
 package com.groupaaa.bank.services;
 
 import com.groupaaa.bank.models.Transaction;
+import static java.util.Collections.list;
 import java.util.List;
 
 
 public class TransactionService {
     private static final TransactionService instance = new TransactionService();
+    private List<Transaction> transactions;
     
     private TransactionService() {
     }
@@ -16,7 +18,7 @@ public class TransactionService {
     }
 
     public List<Transaction> getAllTransactions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return transactions;
     }
 
     public Transaction getTransaction(int transactionId) {
