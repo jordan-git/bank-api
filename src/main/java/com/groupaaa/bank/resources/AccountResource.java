@@ -36,14 +36,14 @@ public class AccountResource {
     }
     //Updating an account by its account number
     @PUT
-    @Path("updateAccount/{accountNo}")
+    @Path("/updateAccount/{accountNo}")
     @Produces(MediaType.APPLICATION_JSON)
     public Account updateAccount(@PathParam("accountNo") Account account,int accountId){
         return accountService.updateAccountByID(account, accountId);
     }
-    
+    //Deleting account by account number
     @DELETE
-    @Path("deleteAccount/{accountNo}/balance")
+    @Path("/deleteAccount/{accountNo}")
     @Produces(MediaType.APPLICATION_JSON)
     public Account deleteAccount(@PathParam("accountNo") Account account,int accountId){
         return accountService.deleteAccountByID(account, accountId);
