@@ -46,20 +46,33 @@ public class CustomerService {
         
         return null;
     }
+    
+    public Customer updateCustomer(int id, Customer updatedCustomer) {
+        for (int i = 0; i < customers.size(); i++) {
+            Customer customer = customers.get(i);
+            
+            if (customer.getId() == id) {
+                customers.set(i, updatedCustomer);
+                return updatedCustomer;
+            }
+        }
+        
+        return null;
+    }
 
     public void addCustomer(Customer customer) {
         customers.add(customer);
     }
     
-    // Need to fix, doesn't delete for some reason
-//    public Customer deleteCustomer(int id) {
-//        for (Customer customer : customers) {
-//            if (customer.getId() == id) {
-//                customers.remove(customer);
-//                return customer;
-//            }
-//        }
-//
-//        return null;
-//    }
+    // TODO: fix. doesn't remove from arraylist for some reason
+    public Customer deleteCustomer(int id) {
+        for (Customer customer : customers) {
+            if (customer.getId() == id) {
+                customers.remove(customer);
+                return customer;
+            }
+        }
+
+        return null;
+    }
 }

@@ -37,6 +37,10 @@ public class Customer {
     public void addAccount(Account account) {
         accounts.add(account);
     }
+    
+    public static int getNextAccountId() {
+        return nextCustomerId;
+    }
 
     public String getName() {
         return name;
