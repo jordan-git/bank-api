@@ -23,6 +23,16 @@ public class Customer {
     public List<Account> getAccounts() {
         return accounts;
     }
+    
+    public Account getAccount(int id) {
+        for (Account account : accounts) {
+            if (account.getAccountNo() == id) {
+                return account;
+            }
+        }
+        
+        return null;
+    }
 
     public void addAccount(Account account) {
         accounts.add(account);

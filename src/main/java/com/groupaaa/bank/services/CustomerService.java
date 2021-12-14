@@ -1,6 +1,8 @@
 package com.groupaaa.bank.services;
 
+import com.groupaaa.bank.models.Account;
 import com.groupaaa.bank.models.Customer;
+import com.groupaaa.bank.models.Transaction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +18,12 @@ public class CustomerService {
         Customer c2 = new Customer("Mike Johnson", "14 Blackroad, Wicklow", "johndoe@mail.ie", "2345");
         Customer c3 = new Customer("Rebecca White", "6 Wilson Rd, Dublin 4", "johndoe@mail.ie", "3456");
         Customer c4 = new Customer("Peter Burn", "12 Rowe Rd, Dublin 6", "johndoe@mail.ie", "4567");
+        
+        Account a1 = new Account("sort", 1234, 50);
+        Transaction t1 = new Transaction("test", "testdesc", 0);
+        
+        a1.addTransaction(t1);
+        c1.addAccount(a1);
         
         customers.addAll(Arrays.asList(c1, c2, c3, c4));
     }

@@ -1,6 +1,8 @@
 package com.groupaaa.bank.services;
 
 import com.groupaaa.bank.models.Account;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AccountService {
@@ -8,6 +10,7 @@ public class AccountService {
     private final CustomerService customerService = CustomerService.getService();
     
     private AccountService() {
+
     }
     
     // singleton pattern
@@ -17,6 +20,10 @@ public class AccountService {
     
     public List<Account> getAccountsByCustomerId(int id) {
         return customerService.getCustomer(id).getAccounts();
+    }
+    
+    public Account getAccount(int customerId, int accountId) {
+        return customerService.getCustomer(customerId).getAccount(accountId);   
     }
 
     public Object getAccountBalance(int customerId) {

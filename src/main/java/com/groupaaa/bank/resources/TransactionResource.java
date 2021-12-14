@@ -17,16 +17,24 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("transactions")
 @RequestScoped
 public class TransactionResource {
     
-    TransactionService transactionService = TransactionService.getService();
+    private int customerId;
+    private int accountId;
+    
+    private static final TransactionService transactionService = TransactionService.getService();
+    
+    public TransactionResource(int customerId, int accountId) {
+        this.customerId = customerId;
+        this.accountId = accountId;
+    }
+    
     //get request to return all transactions
     @GET    
     @Produces(MediaType.APPLICATION_JSON)    
     public List<Transaction> getAllTransactions() {        
-       return transactionService.getAllTransactions();
+       return transactionService.getAllTransactions(customerId, accountId);
     }
     
 //    @GET    
@@ -38,7 +46,7 @@ public class TransactionResource {
     
     //get request by id
     @GET
-    @Path("/{transactionID}")
+    @Path("/{transactionId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTransactionJson(@PathParam("transactionId") int transactionId) {
         Transaction transaction = transactionService.getTransaction(transactionId);

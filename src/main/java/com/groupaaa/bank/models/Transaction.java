@@ -4,12 +4,11 @@ import java.time.LocalDate;
 
 
 public class Transaction {
+    private static int nextTransactionId = 1;
     private String type, description;
     private LocalDate date;
-    private double balance;
     private double newBalance;
-    private int transactionID;
-    private long amount;
+    private int transactionId;
     
    
     
@@ -18,41 +17,21 @@ public class Transaction {
     }
     
     public Transaction(String type, String description, double newBalance) {
-        this.transactionID = transactionID;
+        this.transactionId = nextTransactionId++;
         this.type = type;
         this.description = description;
         this.newBalance = newBalance;
-        this.amount = amount;
         date = LocalDate.now();
     }
 
-    public double getBalance() {
-        return balance;
+    public int getTransactionId() {
+        return transactionId;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    
-    public long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(long amount) {
-        this.amount = amount;
-    }
-
-    public int getTransactionID() {
-        return transactionID;
-    }
-
-    public void setTransactionID(int transactionID) {
-        this.transactionID = transactionID;
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
     
-    
-
     public String getType() {
         return type;
     }

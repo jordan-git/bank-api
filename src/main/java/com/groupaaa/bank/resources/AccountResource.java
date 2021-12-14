@@ -27,27 +27,44 @@ public class AccountResource {
     public Response getAllAccountsJson() {
         return Response.ok(new Gson().toJson(accountService.getAccountsByCustomerId(customerId))).build();
     }
-    //Get account balance from account number 
-    @GET
-    @Path("/{accountNo}/balance")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getAccountBalance(@PathParam("accountNo") int accountId){
-        return (Response) accountService.getAccountBalance(accountId);
-    }
-    //Updating an account by its account number
-    @PUT
-    @Path("/updateAccount/{accountNo}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Account updateAccount(@PathParam("accountNo") Account account,int accountId){
-        return accountService.updateAccountByID(account, accountId);
-    }
-    //Deleting account by account number
-    @DELETE
-    @Path("/deleteAccount/{accountNo}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Account deleteAccount(@PathParam("accountNo") Account account,int accountId){
-        return accountService.deleteAccountByID(account, accountId);
-    }
-   
     
+    @GET
+    @Path("/{accountId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAccountById(@PathParam("accountId") int accountId) {
+        Account account = accountService.getAccount(customerId, accountId);
+        
+        if (account == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+       
+        return Response.ok(new Gson().toJson(account)).build();
+    }
+    
+//    //Get account balance from account number 
+//    @GET
+//    @Path("/{accountId}/balance")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getAccountBalance(@PathParam("accountId") int accountId){
+//        return (Response) accountService.getAccountBalance(accountId);
+//    }
+//    //Updating an account by its account number
+//    @PUT
+//    @Path("/{accountNo}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Account updateAccount(@PathParam("accountNo") Account account,int accountId){
+//        return accountService.updateAccountByID(account, accountId);
+//    }
+//    //Deleting account by account number
+//    @DELETE
+//    @Path("/{accountNo}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Account deleteAccount(@PathParam("accountNo") Account account,int accountId){
+//        return accountService.deleteAccountByID(account, accountId);
+//    }
+    
+    @Path("/{accountId}/transactions")
+    public TransactionResource getTransactionsResource(@PathParam("accountId") int accountId) {
+        return new TransactionResource(customerId, accountId);
+    }
 }
