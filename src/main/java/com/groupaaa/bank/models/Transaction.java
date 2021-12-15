@@ -1,6 +1,7 @@
 package com.groupaaa.bank.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 public class Transaction {
@@ -8,9 +9,9 @@ public class Transaction {
     private String type, description;
     private LocalDate date;
     private double newBalance;
-    private int transactionId;
-    
+    public int transactionId;
    
+    
     
     public Transaction(){
         
@@ -24,6 +25,14 @@ public class Transaction {
         date = LocalDate.now();
     }
 
+    public static int getNextTransactionId() {
+        return nextTransactionId;
+    }
+
+    public static void setNextTransactionId(int nextTransactionId) {
+        Transaction.nextTransactionId = nextTransactionId;
+    }
+    
     public int getTransactionId() {
         return transactionId;
     }
@@ -62,5 +71,9 @@ public class Transaction {
 
     public void setNewBalance(double newBalance) {
         this.newBalance = newBalance;
+    }
+
+    public void setId(int nextTransactionId) {
+       this.nextTransactionId = nextTransactionId;
     }
 }

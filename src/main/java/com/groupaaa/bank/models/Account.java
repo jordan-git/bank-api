@@ -26,7 +26,7 @@ public class Account {
     public static int getNextAccountNo() {
         return nextAccountNo++;
     }
-    
+
     public List<Transaction> getTransactions() {
         return transactions;
     }

@@ -6,11 +6,14 @@
 package com.groupaaa.bank.resources;
 
 import com.google.gson.Gson;
+import com.groupaaa.bank.models.Customer;
 import com.groupaaa.bank.models.Transaction;
 import com.groupaaa.bank.services.TransactionService;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -57,6 +60,19 @@ public class TransactionResource {
         
         return Response.ok(new Gson().toJson(transactionId)).build();
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response createTransactionJson(String content) {
+        Transaction transaction = new Gson().fromJson(content, Transaction.class);
+        transaction.setId(Transaction.getNextTransactionId());
+        
+        transactionService.addTransaction(transaction);
+        
+        return Response.status(Response.Status.NO_CONTENT).build();
+    }
+    
     
     
 }
