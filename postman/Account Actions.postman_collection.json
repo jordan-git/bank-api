@@ -1,12 +1,41 @@
 {
 	"info": {
-		"_postman_id": "3a79edcd-908d-40ab-bb0b-fd2de3549e00",
+		"_postman_id": "cdde3c1c-889a-4b24-851a-ffaf20ce2daa",
 		"name": "Account Actions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "GET Accounts for Customer 1",
+			"name": "GET  All Accounts for Customer 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bank/api/customers/1/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"api",
+						"customers",
+						"1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Account 1 of Customer 1",
 			"request": {
 				"method": "GET",
 				"header": [

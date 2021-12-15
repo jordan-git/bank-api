@@ -19,11 +19,21 @@ public class CustomerService {
         Customer c3 = new Customer("Rebecca White", "6 Wilson Rd, Dublin 4", "johndoe@mail.ie", "3456");
         Customer c4 = new Customer("Peter Burn", "12 Rowe Rd, Dublin 6", "johndoe@mail.ie", "4567");
         
-        Account a1 = new Account("sort", 1234, 50);
-        Transaction t1 = new Transaction("test", "testdesc", 0);
+        Account a1 = new Account("903111", 50);
+        Account a2 = new Account("903111", 100);
+        Account a3 = new Account("903111", 150);
+        
+        Transaction t1 = new Transaction("DEBIT", "Description", 10);
+        Transaction t2 = new Transaction("DEBIT", "Description", 100);
+        Transaction t3 = new Transaction("CREDIT", "Description", 200);
         
         a1.addTransaction(t1);
+        a2.addTransaction(t2);
+        a3.addTransaction(t3);
+        
         c1.addAccount(a1);
+        c2.addAccount(a2);
+        c3.addAccount(a3);
         
         customers.addAll(Arrays.asList(c1, c2, c3, c4));
     }
@@ -64,7 +74,6 @@ public class CustomerService {
         customers.add(customer);
     }
     
-    // TODO: fix. doesn't remove from arraylist for some reason
     public Customer deleteCustomer(int id) {
         for (Customer customer : customers) {
             if (customer.getId() == id) {

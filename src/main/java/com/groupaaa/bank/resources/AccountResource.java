@@ -31,8 +31,8 @@ public class AccountResource {
     @GET
     @Path("/{accountId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAccountById(@PathParam("accountId") int accountId) {
-        Account account = accountService.getAccount(customerId, accountId);
+    public Response getAccountById(@PathParam("accountId") int accountNo) {
+        Account account = accountService.getAccount(customerId, accountNo);
         
         if (account == null) {
             return Response.status(Response.Status.NOT_FOUND).build();

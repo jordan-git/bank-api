@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Customer {
     private String name, address, email, pin;
     private int id;
-    private final List<Account> accounts;
+    private List<Account> accounts;
     
     private static int nextCustomerId = 1;
 
@@ -24,6 +24,10 @@ public class Customer {
         return accounts;
     }
     
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+    
     public Account getAccount(int id) {
         for (Account account : accounts) {
             if (account.getAccountNo() == id) {
@@ -39,7 +43,7 @@ public class Customer {
     }
     
     public static int getNextAccountId() {
-        return nextCustomerId;
+        return nextCustomerId++;
     }
 
     public String getName() {

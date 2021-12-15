@@ -22,8 +22,8 @@ public class AccountService {
         return customerService.getCustomer(id).getAccounts();
     }
     
-    public Account getAccount(int customerId, int accountId) {
-        return customerService.getCustomer(customerId).getAccount(accountId);   
+    public Account getAccount(int customerId, int accountNo) {
+        return customerService.getCustomer(customerId).getAccount(accountNo);   
     }
 
     public Object getAccountBalance(int customerId) {

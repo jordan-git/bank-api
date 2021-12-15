@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "55ca01dc-feaf-4934-ab3e-7b290e28577c",
+		"_postman_id": "ef72b51e-e010-4cf4-8626-ba2269ee3b85",
 		"name": "Customer Actions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -55,6 +55,96 @@
 						"api",
 						"customers",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Customer (New ID 5)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Richard Wilson\",\r\n    \"address\": \"Random Address\",\r\n    \"email\": \"richardwilson@fakemail.ie\",\r\n    \"pin\": \"4545\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bank/api/customers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"api",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Customer 5 (Change Name & PIN)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Customer 5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank/api/customers/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"api",
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Customer 5 (404)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/bank/api/customers/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank",
+						"api",
+						"customers",
+						"5"
 					]
 				}
 			},

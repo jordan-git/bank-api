@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.groupaaa.bank.models.Customer;
 import com.groupaaa.bank.services.CustomerService;
+import java.util.ArrayList;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -45,12 +46,16 @@ public class CustomerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createCustomerJson(String content) {
+        // uses gson to create new Customer from submitted json
         Customer customer = new Gson().fromJson(content, Customer.class);
+        
+        // 
         customer.setId(Customer.getNextAccountId());
+        customer.setAccounts(new ArrayList<>());
         
         customerService.addCustomer(customer);
         
-        return Response.status(Response.Status.NO_CONTENT).build();
+        return Response.ok(new Gson().toJson(customer)).build();
     }
     
     @PUT
@@ -58,9 +63,13 @@ public class CustomerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateCustomerJson(@PathParam("customerId") int customerId, String content) {
+        // parse content using JsonObject to access values
         JsonObject json = new JsonParser().parse(content).getAsJsonObject();
+        
+        // get existing customer object from "database"
         Customer customer = customerService.getCustomer(customerId);
         
+        // check what json values were submitted and update customer with each
         if (json.has("name")) {
             customer.setName(json.get("name").getAsString());
         }
@@ -74,9 +83,10 @@ public class CustomerResource {
             customer.setPin(json.get("pin").getAsString());
         }
         
-        customerService.updateCustomer(customerId, customer);
+        // save
+        Customer updatedCustomer = customerService.updateCustomer(customerId, customer);
 
-        return Response.ok(new Gson().toJson(customer)).build();
+        return Response.ok(new Gson().toJson(updatedCustomer)).build();
     }
     
     @DELETE

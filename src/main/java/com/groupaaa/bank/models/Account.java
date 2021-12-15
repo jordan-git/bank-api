@@ -9,16 +9,22 @@ public class Account {
     private int accountNo;
     private double balance;
     private final List<Transaction> transactions;
+    private static int nextAccountNo = 1;
 
 
     
     
-    public Account(String sortCode, int accountNo, double balance) {
+    public Account(String sortCode, double balance) {
         this.sortCode = sortCode;
-        this.accountNo = accountNo;
         this.balance = balance;
         
+        this.accountNo = nextAccountNo++;
+        
         transactions = new ArrayList<>();
+    }
+    
+    public static int getNextAccountNo() {
+        return nextAccountNo++;
     }
     
     public List<Transaction> getTransactions() {
@@ -27,6 +33,7 @@ public class Account {
     
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
+        setBalance(transaction.getNewBalance());
     }
     
     public String getSortCode() {
