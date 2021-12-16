@@ -63,8 +63,5 @@ public class AccountResource {
 //        return accountService.deleteAccountByID(account, accountId);
 //    }
     
-    @Path("/{accountId}/transactions")
-    public TransactionResource getTransactionsResource(@PathParam("accountId") int accountId) {
-        return new TransactionResource(customerId, accountId);
-    }
+
 }

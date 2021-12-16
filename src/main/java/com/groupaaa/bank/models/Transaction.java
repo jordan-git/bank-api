@@ -10,6 +10,7 @@ public class Transaction {
     private LocalDate date;
     private double newBalance;
     public int transactionId;
+
    
     
     
@@ -23,8 +24,11 @@ public class Transaction {
         this.description = description;
         this.newBalance = newBalance;
         date = LocalDate.now();
+       
     }
-
+    
+    
+   
     public static int getNextTransactionId() {
         return nextTransactionId;
     }
@@ -73,7 +77,5 @@ public class Transaction {
         this.newBalance = newBalance;
     }
 
-    public void setId(int nextTransactionId) {
-       this.nextTransactionId = nextTransactionId;
-    }
+    
 }
