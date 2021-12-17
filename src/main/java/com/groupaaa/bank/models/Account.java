@@ -32,9 +32,42 @@ public class Account {
         return transactions;
     }
     
+    public Transaction setTransaction(int transactionId, Transaction updatedTransaction) {
+        for (int i = 0; i < transactions.size(); i++) {
+            Transaction transaction = transactions.get(i);
+            
+            if (transaction.getTransactionId() == transactionId) {
+                transactions.set(i, updatedTransaction);
+                return updatedTransaction;
+            }
+        }
+        return null;
+    }
+    
+    public Transaction getTransaction(int transactionId) {
+        for (Transaction transaction : transactions) {
+            if (transaction.getTransactionId() == transactionId) {
+                return transaction;
+            }
+        }
+        
+        return null;
+    }
+    
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
         setBalance(transaction.getNewBalance());
+    }
+    
+    public Transaction deleteTransaction(int transactionId) {
+        for (Transaction transaction : transactions) {
+            if (transaction.getTransactionId() == transactionId) {
+                transactions.remove(transaction);
+                return transaction;
+            }
+        }
+        
+        return null;
     }
     
     public String getSortCode() {

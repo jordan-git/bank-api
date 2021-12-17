@@ -2,8 +2,6 @@ package com.groupaaa.bank.services;
 
 import com.groupaaa.bank.models.Account;
 import com.groupaaa.bank.models.Customer;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class AccountService {
@@ -46,17 +44,5 @@ public class AccountService {
     
     public Account deleteAccount(int customerId, int accountNo) {
         return customerService.getCustomer(customerId).deleteAccount(accountNo);
-    }
-
-    public Object getAccountBalance(int customerId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Account updateAccountByID(Account account, int accountId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Account deleteAccountByID(Account account, int accountId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

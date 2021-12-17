@@ -24,9 +24,9 @@ public class CustomerService {
         Account a3 = new Account("903111", 150);
         Account a4 = new Account("903111", 5550);
         
-        Transaction t1 = new Transaction("DEBIT", "Description", 10);
-        Transaction t2 = new Transaction("DEBIT", "Description", 100);
-        Transaction t3 = new Transaction("CREDIT", "Description", 200);
+        Transaction t1 = new Transaction("DEBIT", "Deposit at branch", 10);
+        Transaction t2 = new Transaction("DEBIT", "Deposit at branch", 100);
+        Transaction t3 = new Transaction("CREDIT", "Deposit at branch", 200);
         
         a1.addTransaction(t1);
         a2.addTransaction(t2);

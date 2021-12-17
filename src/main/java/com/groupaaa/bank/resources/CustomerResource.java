@@ -48,6 +48,16 @@ public class CustomerResource {
     public Response createCustomerJson(String content) {
         // uses gson to create new Customer from submitted json
         Customer customer = new Gson().fromJson(content, Customer.class);
+        
+        // Return conflict if email exists in database
+        for (Customer savedCustomers : customerService.getCustomers()) {
+            if (customer.getEmail().equals(savedCustomers.getEmail())) {
+                return Response.status(Response.Status.CONFLICT).build();
+            }
+        }
+        
+        
+        
         customer.setId(Customer.getNextAccountId());
         customer.setAccounts(new ArrayList<>());
         

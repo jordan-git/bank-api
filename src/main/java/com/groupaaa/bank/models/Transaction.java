@@ -1,7 +1,6 @@
 package com.groupaaa.bank.models;
 
 import java.time.LocalDate;
-import java.util.List;
 
 
 public class Transaction {
@@ -27,8 +26,6 @@ public class Transaction {
        
     }
     
-    
-   
     public static int getNextTransactionId() {
         return nextTransactionId;
     }

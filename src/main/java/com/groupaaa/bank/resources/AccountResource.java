@@ -1,15 +1,12 @@
 package com.groupaaa.bank.resources;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.groupaaa.bank.models.Account;
-import com.groupaaa.bank.models.Customer;
 import com.groupaaa.bank.models.Transaction;
 import com.groupaaa.bank.services.AccountService;
 import com.groupaaa.bank.services.CustomerService;
-import java.util.ArrayList;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.enterprise.context.RequestScoped;
@@ -193,7 +190,7 @@ public class AccountResource {
         if (json.has("balance")) {
             account.setBalance(json.get("balance").getAsDouble());
         }
-        
+               
         // save
         Account updatedAccount = accountService.updateAccount(customerId, accountNo, account);
 

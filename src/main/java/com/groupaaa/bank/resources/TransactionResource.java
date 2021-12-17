@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.groupaaa.bank.resources;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.groupaaa.bank.models.Customer;
 import com.groupaaa.bank.models.Transaction;
 import com.groupaaa.bank.services.TransactionService;
-import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -37,7 +30,7 @@ public class TransactionResource {
     @GET    
     @Produces(MediaType.APPLICATION_JSON)    
     public Response getTransactionsJson() {        
-       return Response.ok(new Gson().toJson(transactionService.getTransactions())).build();
+       return Response.ok(new Gson().toJson(transactionService.getTransactions(customerId, accountId))).build();
     }
     
 //    @GET    
@@ -52,7 +45,7 @@ public class TransactionResource {
     @Path("/{transactionId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTransactionJson(@PathParam("transactionId") int transactionId) {
-        Transaction transaction = transactionService.getTransactionById(transactionId);
+        Transaction transaction = transactionService.getTransaction(customerId, accountId, transactionId);
         
         if(transaction == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -69,9 +62,9 @@ public class TransactionResource {
         
         transaction.setTransactionId(Transaction.getNextTransactionId());
         
-        transactionService.addTransaction(transaction);
+        transactionService.addTransaction(customerId, accountId, transaction);
         
-        return Response.status(Response.Status.NO_CONTENT).build();
+        return Response.ok(new Gson().toJson(transaction)).build();
     }
     
     
@@ -84,7 +77,7 @@ public class TransactionResource {
         JsonObject json = new JsonParser().parse(content).getAsJsonObject();
         
         // get existing customer object from "database"
-        Transaction transaction = transactionService.getTransactionById(transactionId);
+        Transaction transaction = transactionService.getTransaction(customerId, accountId, transactionId);
         
         // check what json values were submitted and update transaction with each
         if (json.has("type")) {
@@ -97,7 +90,7 @@ public class TransactionResource {
             transaction.setNewBalance(json.get("newBalance").getAsDouble());
         }
         // save
-        Transaction updatedTransaction = transactionService.updateTransaction(transactionId, transaction);
+        Transaction updatedTransaction = transactionService.updateTransaction(customerId, accountId, transactionId, transaction);
 
         return Response.ok(new Gson().toJson(updatedTransaction)).build();
     }
@@ -106,7 +99,7 @@ public class TransactionResource {
     @Path("/{transactionId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteTransactionJson(@PathParam("transactionId") int transactionId) {
-        Transaction transaction = transactionService.deleteTransaction(transactionId);
+        Transaction transaction = transactionService.deleteTransaction(customerId, accountId, transactionId);
         
         if (transaction == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
