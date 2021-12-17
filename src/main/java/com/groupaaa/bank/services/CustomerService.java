@@ -22,6 +22,7 @@ public class CustomerService {
         Account a1 = new Account("903111", 50);
         Account a2 = new Account("903111", 100);
         Account a3 = new Account("903111", 150);
+        Account a4 = new Account("903111", 5550);
         
         Transaction t1 = new Transaction("DEBIT", "Description", 10);
         Transaction t2 = new Transaction("DEBIT", "Description", 100);
@@ -32,6 +33,8 @@ public class CustomerService {
         a3.addTransaction(t3);
         
         c1.addAccount(a1);
+        c1.addAccount(a4);
+        
         c2.addAccount(a2);
         c3.addAccount(a3);
         

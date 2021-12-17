@@ -28,9 +28,20 @@ public class Customer {
         this.accounts = accounts;
     }
     
-    public Account getAccount(int id) {
+    public Account setAccount(int accountNo, Account account) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getAccountNo() == accountNo) {
+                accounts.set(i, account);
+                return account;
+            }
+        }
+        
+        return null;
+    }
+    
+    public Account getAccount(int accountNo) {
         for (Account account : accounts) {
-            if (account.getAccountNo() == id) {
+            if (account.getAccountNo() == accountNo) {
                 return account;
             }
         }
@@ -40,6 +51,17 @@ public class Customer {
 
     public void addAccount(Account account) {
         accounts.add(account);
+    }
+    
+    public Account deleteAccount(int accountNo) {
+        for (Account account : accounts) {
+            if (account.getAccountNo() == id) {
+                accounts.remove(account);
+                return account;
+            }
+        }
+        
+        return null;
     }
     
     public static int getNextAccountId() {

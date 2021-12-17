@@ -24,15 +24,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("transactions")
 @RequestScoped
 public class TransactionResource {
-    
-    
-    
     private static final TransactionService transactionService = TransactionService.getService();
+    private final int customerId, accountId;
     
-   
+    public TransactionResource(int customerId, int accountId) {
+        this.customerId = customerId;
+        this.accountId = accountId;
+    }
     //get request to return all transactions
     @GET    
     @Produces(MediaType.APPLICATION_JSON)    

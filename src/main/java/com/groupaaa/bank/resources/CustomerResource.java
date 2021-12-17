@@ -48,8 +48,6 @@ public class CustomerResource {
     public Response createCustomerJson(String content) {
         // uses gson to create new Customer from submitted json
         Customer customer = new Gson().fromJson(content, Customer.class);
-        
-        // 
         customer.setId(Customer.getNextAccountId());
         customer.setAccounts(new ArrayList<>());
         
