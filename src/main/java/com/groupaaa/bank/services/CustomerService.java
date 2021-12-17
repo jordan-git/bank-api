@@ -15,9 +15,9 @@ public class CustomerService {
         customers = new ArrayList<>();
 
         Customer c1 = new Customer("John Doe", "55 Spring Park, Kildare", "johndoe@mail.ie", "1234");
-        Customer c2 = new Customer("Mike Johnson", "14 Blackroad, Wicklow", "johndoe@mail.ie", "2345");
-        Customer c3 = new Customer("Rebecca White", "6 Wilson Rd, Dublin 4", "johndoe@mail.ie", "3456");
-        Customer c4 = new Customer("Peter Burn", "12 Rowe Rd, Dublin 6", "johndoe@mail.ie", "4567");
+        Customer c2 = new Customer("Mike Johnson", "14 Blackroad, Wicklow", "somethingelse@mail.ie", "2345");
+        Customer c3 = new Customer("Rebecca White", "6 Wilson Rd, Dublin 4", "anotherone@mail.ie", "3456");
+        Customer c4 = new Customer("Peter Burn", "12 Rowe Rd, Dublin 6", "onemore@mail.ie", "4567");
         
         Account a1 = new Account("903111", 50);
         Account a2 = new Account("903111", 100);
